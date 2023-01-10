@@ -1,9 +1,26 @@
-<h1>New user</h1>
-
-<%= render "form", user: @user %>
-
-<br>
-
-<div>
-  <%= link_to "Back to users", users_path %>
+<div class="w-96 mx-auto my-8">
+  <h1 class="text-2xl font-semibold underline mb-4">New user</h1>
+  <%= form_with(model: @user) do |f| %>
+    <%= f.label :name %>
+    <br>
+    <%= f.text_field :name, class: "p-2 w-full bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300" %>
+    <br>
+    <br>
+    <%= f.label :email %>
+    <br>
+    <%= f.email_field :email, class: "p-2 w-full bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300" %>
+    <br>
+    <br>
+    <%= f.label :password %>
+    <br>
+    <%= f.password_field :password, class: "p-2 w-full bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300" %>
+    <br>
+    <br>
+    <%= f.label :password_confirmation, "Confirmation" %>
+    <br>
+    <%= f.password_field :password_confirmation, class: "p-2 w-full bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300" %>
+    <br>
+    <br>
+    <%= f.submit "Create my account", class: "font-sans text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md text-sm w-full px-5 py-2.5 text-center" %>
+  <% end %>
 </div>

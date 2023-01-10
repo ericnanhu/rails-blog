@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   def show
   end
 
-  # GET /users/new
+  # GET /users/new or /signup
   def new
     @user = User.new
   end
@@ -65,6 +65,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:name, :email)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
 end

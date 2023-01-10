@@ -17,9 +17,12 @@
         </a>
       </div>
       <div class="hidden lg:flex content-between space-x-10 px-10 text-lg">
-        <a href="https://github.com/ericnanhu" class="hover:underline hover:underline-offset-1">GitHub</a>
-        <a href="#" class="hover:underline hover:underline-offset-1">Link</a>
-        <a href="#" class="hover:underline hover:underline-offset-1">Link</a>
+        <% if logged_in? %>
+        <%= link_to "Profile", current_user, class: "hover:underline hover:underline-offset-1" %>
+        <%= link_to "Log out", logout_path, data: { "turbo-method": :delete }, class: "hover:underline hover:underline-offset-1" %>
+        <% else %>
+        <%= link_to "Log in", login_path, class: "hover:underline hover:underline-offset-1" %>
+        <% end %>
       </div>
     </nav>
     <%= yield %>

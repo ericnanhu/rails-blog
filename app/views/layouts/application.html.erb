@@ -20,6 +20,7 @@
         <% if logged_in? %>
         <%= link_to "Profile", current_user, class: "hover:underline hover:underline-offset-1" %>
         <%= link_to "Log out", logout_path, data: { "turbo-method": :delete }, class: "hover:underline hover:underline-offset-1" %>
+        <%= link_to "New post", new_post_path, class: "hover:underline hover:underline-offset-1" %>
         <% else %>
         <%= link_to "Log in", login_path, class: "hover:underline hover:underline-offset-1" %>
         <% end %>

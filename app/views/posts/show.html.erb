@@ -1,0 +1,15 @@
+<p style="color: green"><%= notice %></p>
+<!--
+<div>
+  <%= link_to "Edit this post", edit_post_path(@post) %> |
+  <%= link_to "Back to posts", posts_path %>
+  <%= button_to "Destroy this post", @post, method: :delete %>
+</div>
+-->
+<div class="my-5">
+  <!-- Post -->
+  <img class="mb-4 rounded-md" src="https://dummyimage.com/1920x1080/dee2e6/6c757d.jpg" alt="..." />
+  <h1 class="text-center text-3xl capitalize mb-4"><%= @post.title %></h1>
+  <p class="my-5"><%= @post.content %></p>
+  <%= link_to "Edit this post", edit_post_path(@post), class: "font-sans text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md text-sm w-full px-5 py-2.5 text-center" %>
+</div>

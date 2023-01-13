@@ -1,4 +1,5 @@
-<% if @posts.any? %>
+<p style="color: green"><%= notice %></p>
+
 <div class="grid grid-cols-4 gap-4 my-5">
   <% @posts.each do |post| %>
     <!-- post -->
@@ -14,5 +15,3 @@
     </div>
   <% end %>
 </div>
-<%= will_paginate @posts %>
-<% end %>

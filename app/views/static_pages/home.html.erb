@@ -1,18 +1,21 @@
 <% if @posts.any? %>
-<div class="grid grid-cols-4 gap-4 my-5">
-  <% @posts.each do |post| %>
-    <!-- post -->
-    <div class="mb-4 ring-1 ring-slate-200 rounded-md hover:shadow-md">
-      <a href="#!"><img class="rounded-t-md" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg"
+  <div class="grid grid-cols-4 gap-4 my-5">
+    <% @posts.each do |post| %>
+      <!-- post -->
+      <div class="mb-4 ring-1 ring-slate-200 rounded-md hover:shadow-md">
+        <a href="#!"><img class="rounded-t-md" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg"
                             alt="..." /></a>
-      <div class="m-4 grid gap-2">
-        <div class="text-sm text-gray-500">January 1, 2022</div>
-        <h2 class="text-lg font-bold"><%= post.title %></h2>
-        <p class="text-base"><%= post.content %></p>
-        <%= link_to "Show this post", post, class: "bg-blue-500 hover:bg-blue-700 rounded-md p-2 text-white uppercase text-sm font-semibold font-sans w-fit focus:ring" %>
+        <div class="m-4 grid gap-2">
+          <div class="text-sm text-gray-500"><%= post.created_at.strftime("%b %d, %Y") %></div>
+          <h2 class="text-lg font-bold"><%= post.title %></h2>
+          <p class="text-base"><%= truncate(post.content.to_plain_text, :length => 150 ) %></p>
+          <%= link_to "Show this post", post, class: "bg-blue-500 hover:bg-blue-700 rounded-md p-2 text-white uppercase text-sm font-semibold font-sans w-fit focus:ring" %>
+        </div>
       </div>
-    </div>
-  <% end %>
-</div>
-<%= will_paginate @posts %>
+    <% end %>
+  </div>
+
+  <div class="pagination">
+    <%= will_paginate @posts %>
+  </div>
 <% end %>
